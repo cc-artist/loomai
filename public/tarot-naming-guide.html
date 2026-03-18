@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOOM塔罗牌 - 本地图片命名指南</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .card-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+        .card-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .card-slug {
+            color: #666;
+            font-family: monospace;
+            background-color: #f0f0f0;
+            padding: 3px 5px;
+            border-radius: 3px;
+        }
+        .script-box {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        .important {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+        .step-by-step {
+            margin: 20px 0;
+        }
+        .step-by-step ol {
+            padding-left: 20px;
+        }
+        .step-by-step li {
+            margin-bottom: 10px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>LOOM塔罗牌 - 本地图片命名指南</h1>
+    
+    <div class="container">
+        <div class="section">
+            <h2>1. 图片命名规则</h2>
+            <p>为了确保LOOM塔罗牌平台能正确显示本地图片，您需要按照以下规则命名图片文件：</p>
+            <div class="important">
+                <strong>重要提示：</strong>
+                <ul>
+                    <li>所有图片必须使用 <strong>.jpg</strong> 格式</li>
+                    <li>文件名必须使用 <strong>小写字母</strong> 和 <strong>短横线(-)</strong>（不能包含空格或特殊字符）</li>
+                    <li>图片尺寸建议为 <strong>500px × 750px</strong>（宽 × 高）</li>
+                    <li>图片必须放入 <strong>public/tarot-cards/major-arcana/</strong> 目录</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. 大阿卡纳牌命名列表</h2>
+            <p>以下是22张大阿卡纳牌的正确命名：</p>
+            <div class="card-grid">
+                <div class="card-item">
+                    <div class="card-name">0. 愚人</div>
+                    <div class="card-slug">fool.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">1. 魔术师</div>
+                    <div class="card-slug">magician.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">2. 女祭司</div>
+                    <div class="card-slug">high-priestess.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">3. 女皇</div>
+                    <div class="card-slug">empress.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">4. 皇帝</div>
+                    <div class="card-slug">emperor.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">5. 教皇</div>
+                    <div class="card-slug">hierophant.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">6. 恋人</div>
+                    <div class="card-slug">lovers.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">7. 战车</div>
+                    <div class="card-slug">chariot.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">8. 力量</div>
+                    <div class="card-slug">strength.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">9. 隐士</div>
+                    <div class="card-slug">hermit.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">10. 命运之轮</div>
+                    <div class="card-slug">wheel-of-fortune.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">11. 正义</div>
+                    <div class="card-slug">justice.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">12. 倒吊人</div>
+                    <div class="card-slug">hanged-man.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">13. 死神</div>
+                    <div class="card-slug">death.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">14. 节制</div>
+                    <div class="card-slug">temperance.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">15. 恶魔</div>
+                    <div class="card-slug">devil.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">16. 高塔</div>
+                    <div class="card-slug">tower.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">17. 星星</div>
+                    <div class="card-slug">star.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">18. 月亮</div>
+                    <div class="card-slug">moon.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">19. 太阳</div>
+                    <div class="card-slug">sun.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">20. 审判</div>
+                    <div class="card-slug">judgement.jpg</div>
+                </div>
+                <div class="card-item">
+                    <div class="card-name">21. 世界</div>
+                    <div class="card-slug">world.jpg</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. 使用本地图片的步骤</h2>
+            <div class="step-by-step">
+                <ol>
+                    <li><strong>准备图片文件</strong>：收集22张韦特塔罗牌（大阿卡纳）的图片</li>
+                    <li><strong>重命名图片</strong>：按照上述列表将图片重命名为正确的格式</li>
+                    <li><strong>创建目录</strong>：确保存在 <code>public/tarot-cards/major-arcana/</code> 目录</li>
+                    <li><strong>复制图片</strong>：将重命名后的图片放入该目录</li>
+                    <li><strong>修改代码</strong>：在 <code>src/app/readings/page.tsx</code> 中修改图片加载逻辑</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. 代码修改指南</h2>
+            <p>要使用本地图片，需要修改 <code>src/app/readings/page.tsx</code> 文件中的图片加载逻辑：</p>
+            
+            <h3>修改前（使用在线图片）：</h3>
+            <div class="script-box">
+<img 
+  src={`https://upload.wikimedia.org/wikipedia/commons/thumb/${getWikimediaImagePath(card.id)}/500px-${getWikimediaImageFileName(card.id)}.jpg`} 
+  alt={card.name} 
+  className="w-full h-full object-contain rounded-md transition-all duration-500 ease-in-out"
+  onError={(e) => {
+    /* 如果在线图片加载失败，显示默认图标 */
+    const target = e.target as HTMLImageElement;
+    target.style.display = 'none';
+    const container = target.parentElement;
+    if (container) {
+      container.innerHTML = '<div className="w-full h-full flex items-center justify-center text-6xl">🃏</div>';
+    }
+  }}
+/>
+            </div>
+            
+            <h3>修改后（使用本地图片）：</h3>
+            <div class="script-box">
+<img 
+  src={card.image} 
+  alt={card.name} 
+  className="w-full h-full object-contain rounded-md transition-all duration-500 ease-in-out"
+  onError={(e) => {
+    /* 如果本地图片加载失败，显示默认图标 */
+    const target = e.target as HTMLImageElement;
+    target.style.display = 'none';
+    const container = target.parentElement;
+    if (container) {
+      container.innerHTML = '<div className="w-full h-full flex items-center justify-center text-6xl">🃏</div>';
+    }
+  }}
+/>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. 自动重命名脚本</h2>
+            <p>如果您有大量图片需要重命名，可以使用以下脚本自动处理：</p>
+            
+            <h3>Windows PowerShell脚本：</h3>
+            <div class="script-box">
+# 创建映射表
+$cardMapping = @{
+    "愚人" = "fool.jpg"
+    "魔术师" = "magician.jpg"
+    "女祭司" = "high-priestess.jpg"
+    "女皇" = "empress.jpg"
+    "皇帝" = "emperor.jpg"
+    "教皇" = "hierophant.jpg"
+    "恋人" = "lovers.jpg"
+    "战车" = "chariot.jpg"
+    "力量" = "strength.jpg"
+    "隐士" = "hermit.jpg"
+    "命运之轮" = "wheel-of-fortune.jpg"
+    "正义" = "justice.jpg"
+    "倒吊人" = "hanged-man.jpg"
+    "死神" = "death.jpg"
+    "节制" = "temperance.jpg"
+    "恶魔" = "devil.jpg"
+    "高塔" = "tower.jpg"
+    "星星" = "star.jpg"
+    "月亮" = "moon.jpg"
+    "太阳" = "sun.jpg"
+    "审判" = "judgement.jpg"
+    "世界" = "world.jpg"
+}
+
+# 设置图片目录
+$imageDir = "C:\Path\To\Your\Images"
+
+# 遍历目录中的图片文件
+Get-ChildItem -Path $imageDir -Filter "*.jpg" | ForEach-Object {
+    $fileName = $_.Name
+    $baseName = $_.BaseName
+    
+    # 检查是否需要重命名
+    if ($cardMapping.ContainsKey($baseName)) {
+        $newName = $cardMapping[$baseName]
+        $newPath = Join-Path -Path $imageDir -ChildPath $newName
+        
+        # 执行重命名
+        Write-Host "重命名: $fileName -> $newName"
+        Rename-Item -Path $_.FullName -NewName $newName
+    }
+}
+
+Write-Host "重命名完成！"
+            </div>
+            
+            <h3>使用说明：</h3>
+            <ol>
+                <li>将脚本保存为 <code>rename-tarot.ps1</code></li>
+                <li>修改 <code>$imageDir</code> 为您的图片目录路径</li>
+                <li>在PowerShell中运行脚本：<code>.\rename-tarot.ps1</code></li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>6. 验证图片路径</h2>
+            <p>修改完成后，可以通过以下方式验证图片路径是否正确：</p>
+            <ul>
+                <li>在浏览器中访问：<code>http://localhost:3000/tarot-cards/major-arcana/magician.jpg</code></li>
+                <li>如果能看到魔术师的图片，则路径正确</li>
+                <li>如果显示404错误，请检查文件名和路径是否正确</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+ 
+InfinityFree
+loomai.ct.ws
+
+
+
+https://nic.eu.org/arf/en/domain/new/
+loomai.eu.org
+
+ns1.vercel-dns.com
+ns2.vercel-dns.com
+---- Servers and domain names check
+
+Getting IP for NS1.VERCEL-DNS.COM: 198.51.44.13
+Getting IP for NS1.VERCEL-DNS.COM: 2620:4d:4000:6259:7:13:0:1
+Getting IP for NS2.VERCEL-DNS.COM: 198.51.45.13
+Getting IP for NS2.VERCEL-DNS.COM: 2a00:edc0:6259:7:13::2
+
+
+No error, storing for validation...
+Saved as request 20260316105600-arf-27845
+
+Done
