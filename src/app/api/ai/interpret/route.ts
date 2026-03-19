@@ -91,6 +91,31 @@ export async function POST(request: Request) {
           max_tokens: 800
         }),
         parseResponse: (data: any) => data.content?.[0]?.text
+      },
+      deepseek: {
+        apiKey: process.env.DEEPSEEK_API_KEY,
+        model: process.env.DEEPSEEK_MODEL || 'deepseek-v3',
+        url: 'https://api.deepseek.com/v1/chat/completions',
+        headers: (apiKey: string) => ({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        }),
+        body: (prompt: string) => ({
+          model: process.env.DEEPSEEK_MODEL || 'deepseek-v3',
+          messages: [
+            {
+              role: 'system',
+              content: '你是一名专业的塔罗牌解读师，具有丰富的塔罗牌解读经验。'
+            },
+            {
+              role: 'user',
+              content: prompt
+            }
+          ],
+          temperature: 0.7,
+          max_tokens: 800
+        }),
+        parseResponse: (data: any) => data.choices?.[0]?.message?.content
       }
     };
     
@@ -146,7 +171,8 @@ export async function POST(request: Request) {
           .map(m => m as keyof typeof models)
       ];
     } else {
-      modelOrder = ['openai', 'anthropic'];
+      // 默认优先使用DeepSeek模型，然后是OpenAI，最后是Anthropic
+      modelOrder = ['deepseek', 'openai', 'anthropic'];
     };
     
     // 尝试调用模型，直到成功或所有模型都失败
