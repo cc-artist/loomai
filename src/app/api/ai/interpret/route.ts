@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     
     // 优化后的提示词模板
     const prompt = `
-    作为一名资深塔罗牌解读师，你拥有20年的专业经验，请根据以下信息为用户提供深入、精准的塔罗牌解读：
+    作为一名拥有20年专业经验的资深塔罗牌解读师，你精通韦特塔罗体系，擅长深入分析牌面组合与位置关系，请根据以下信息为用户提供专业、深入、个性化的塔罗牌解读：
     
     用户问题：${question || '请对我的牌阵进行综合解读'}
     
@@ -29,15 +29,18 @@ export async function POST(request: Request) {
     ${cardDetails}
     
     解读要求：
-    1. 结合每张牌的核心含义和位置象征
-    2. 针对用户问题给出具体的洞察和实用建议
-    3. 语言专业易懂，避免过于晦涩的术语
-    4. 保持积极正面的引导
-    5. 解读长度适中，500-800字
-    6. 遵循韦特塔罗牌的传统解释体系
-    7. 突出牌面组合的协同效应
+    1. **深度分析**：详细解析每张牌的核心含义，结合其在牌阵中的位置象征
+    2. **牌面关联**：深入分析牌与牌之间的互动关系、能量流动和组合效应
+    3. **问题聚焦**：针对用户的具体问题，提供针对性的洞察和实用建议
+    4. **多层次解读**：从过去、现在、未来三个维度分析，或根据牌阵位置进行相应的时间/领域分析
+    5. **情感与行动**：同时提供情感层面的理解和具体的行动建议
+    6. **专业易懂**：使用专业但易懂的语言，避免过于晦涩的术语
+    7. **温暖引导**：保持温暖、支持性的语气，给予积极正面的引导
+    8. **内容丰富**：解读长度控制在800-1200字，确保内容充实、有深度
+    9. **韦特传统**：严格遵循韦特塔罗牌的传统解释体系
+    10. **个性化**：避免模板化解读，根据牌面组合创造独特的解读内容
     
-    请以塔罗师的口吻进行解读，保持温暖、专业的语气。
+    请以资深塔罗师的口吻进行解读，让用户感受到你的专业知识和温暖关怀。
     `;
     
     let interpretation: string | undefined;
@@ -176,10 +179,12 @@ export async function POST(request: Request) {
     };
     
     // 尝试调用模型，直到成功或所有模型都失败
+    let actualModelUsed: string = 'mock';
     for (const modelType of modelOrder) {
       const result = await callModel(modelType);
       if (result) {
         interpretation = result;
+        actualModelUsed = modelType;
         break;
       }
     }
@@ -194,14 +199,14 @@ export async function POST(request: Request) {
         );
       } else {
         // 非生产环境：使用更智能的模拟数据
-        interpretation = `根据您的问题：${question || '塔罗牌解读'}\n\n您抽到的牌阵：${spreadName || '塔罗牌阵'}\n\n牌面详情：\n${cardDetails}\n\nAI塔罗解读：\n这是一段智能模拟的塔罗解读。在实际应用中，系统会调用OpenAI或Anthropic等先进AI模型，结合您的具体问题和牌面组合，生成深入、个性化的解读。\n\n建议：根据解牌结果，您可以考虑采取相应的行动，保持积极的心态面对生活中的挑战和机遇。`;
+        interpretation = `根据您的问题：${question || '塔罗牌解读'}\n\n您抽到的牌阵：${spreadName || '塔罗牌阵'}\n\n牌面详情：\n${cardDetails}\n\nAI塔罗解读：\n这是一段智能模拟的塔罗解读。在实际应用中，系统会调用DeepSeek、OpenAI或Anthropic等先进AI模型，结合您的具体问题和牌面组合，生成深入、个性化的解读。\n\n建议：根据解牌结果，您可以考虑采取相应的行动，保持积极的心态面对生活中的挑战和机遇。`;
       }
     }
     
     return NextResponse.json({
       success: true,
       interpretation,
-      modelUsed: interpretation.includes('智能模拟') ? 'mock' : modelOrder[0]
+      modelUsed: actualModelUsed
     });
   } catch (error) {
     console.error('AI解读错误:', error);
