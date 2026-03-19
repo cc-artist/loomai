@@ -101,8 +101,14 @@ export default function ReadingsPage() {
     // 洗牌动画（延长洗牌时间，模拟真实洗牌过程）
     let shuffleCount = 0
     const shuffleInterval = setInterval(() => {
-      // 每次洗牌生成新的随机牌堆
-      const shuffled = [...tarotCards].sort(() => 0.5 - Math.random())
+      // 每次洗牌生成新的随机牌堆，包含随机正逆位
+      const shuffled = [...tarotCards]
+        .sort(() => 0.5 - Math.random())
+        .map(card => ({
+          ...card,
+          reversed: Math.random() > 0.5, // 50%概率逆位
+          actualMeaning: Math.random() > 0.5 ? card.meaning : card.reversedMeaning // 根据正逆位选择实际含义
+        }))
       setShuffledDeck(shuffled)
       shuffleCount++
 
@@ -110,8 +116,14 @@ export default function ReadingsPage() {
         clearInterval(shuffleInterval)
         setIsShuffling(false)
         setIsReadyToDraw(true)
-        // 洗牌完成后，准备好最终牌堆
-        const finalShuffled = [...tarotCards].sort(() => 0.5 - Math.random())
+        // 洗牌完成后，准备好最终牌堆，包含随机正逆位
+        const finalShuffled = [...tarotCards]
+          .sort(() => 0.5 - Math.random())
+          .map(card => ({
+            ...card,
+            reversed: Math.random() > 0.5, // 50%概率逆位
+            actualMeaning: Math.random() > 0.5 ? card.meaning : card.reversedMeaning // 根据正逆位选择实际含义
+          }))
         setShuffledDeck(finalShuffled)
       }
     }, 150) // 每150ms洗牌一次（减慢洗牌速度）

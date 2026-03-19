@@ -12,10 +12,13 @@ export async function POST(request: Request) {
       );
     }
     
-    // 准备卡片详细信息，包含位置信息
-    const cardDetails = cards.map((card: any) => 
-      `${card.position}：${card.name} (${card.meaning})`
-    ).join('\n');
+    // 准备卡片详细信息，包含位置信息和正逆位状态
+    const cardDetails = cards.map((card: any) => {
+      const positionInfo = card.position || `位置 ${cards.indexOf(card) + 1}`;
+      const orientation = card.reversed ? '(逆位)' : '(正位)';
+      const actualMeaning = card.actualMeaning || card.meaning;
+      return `${positionInfo}：${card.name} ${orientation} (${actualMeaning})`;
+    }).join('\n');
     
     // 优化后的提示词模板
     const prompt = `
